@@ -2458,7 +2458,6 @@ GameObject:
   - component: {fileID: 94229130}
   - component: {fileID: 94229129}
   - component: {fileID: 94229128}
-  - component: {fileID: 94229133}
   m_Layer: 0
   m_Name: Ruby_2
   m_TagString: Untagged
@@ -2575,25 +2574,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &94229133
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94229127}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 56098bd0be6753b4986c8df233a5c2ff, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &95855518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5546,7 +5526,6 @@ GameObject:
   - component: {fileID: 297163417}
   - component: {fileID: 297163416}
   - component: {fileID: 297163415}
-  - component: {fileID: 297163420}
   m_Layer: 0
   m_Name: Ruby_3
   m_TagString: Untagged
@@ -5663,25 +5642,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &297163420
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297163414}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43526c709dc087e43b05444762024a24, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &299649771
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,7 +8312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 43, y: -61.999756}
+  m_AnchoredPosition: {x: 43, y: -61.999878}
   m_SizeDelta: {x: -874.22534, y: -517.6001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451023536
@@ -12368,7 +12328,6 @@ GameObject:
   - component: {fileID: 734413997}
   - component: {fileID: 734413996}
   - component: {fileID: 734413995}
-  - component: {fileID: 734414001}
   m_Layer: 0
   m_Name: pingvinpsd (2)
   m_TagString: Untagged
@@ -12497,25 +12456,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &734414001
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734413994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4aeb3d03577c7f4469e87237939076b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &738499317
 GameObject:
   m_ObjectHideFlags: 0
@@ -19361,7 +19301,6 @@ GameObject:
   - component: {fileID: 1153241371}
   - component: {fileID: 1153241370}
   - component: {fileID: 1153241369}
-  - component: {fileID: 1153241375}
   m_Layer: 0
   m_Name: pingvinpsd (4)
   m_TagString: Untagged
@@ -19490,25 +19429,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1153241375
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153241368}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee24e2b9bf35ebf4894e591b6a9dae69, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1154707495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19931,7 +19851,6 @@ GameObject:
   - component: {fileID: 1182929214}
   - component: {fileID: 1182929213}
   - component: {fileID: 1182929212}
-  - component: {fileID: 1182929217}
   m_Layer: 0
   m_Name: Ruby_1
   m_TagString: Untagged
@@ -20048,25 +19967,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1182929217
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182929211}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 046f2ee6aefdd8344928d6538f48a3f1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1189957633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35963,7 +35863,6 @@ GameObject:
   - component: {fileID: 1925600658}
   - component: {fileID: 1925600657}
   - component: {fileID: 1925600656}
-  - component: {fileID: 1925600662}
   m_Layer: 0
   m_Name: pingvinpsd (5)
   m_TagString: Untagged
@@ -36092,25 +35991,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &1925600662
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925600655}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a1ce82dd3e6ffce46beea9ecb7337344, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1930325037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4168948021283832, guid: 264dc88c7cae346ff9893a0d73c103d1, type: 3}
@@ -36991,7 +36871,6 @@ GameObject:
   - component: {fileID: 1974534670}
   - component: {fileID: 1974534669}
   - component: {fileID: 1974534668}
-  - component: {fileID: 1974534674}
   m_Layer: 0
   m_Name: pingvinpsd (3)
   m_TagString: Untagged
@@ -37120,25 +36999,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &1974534674
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974534667}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf7f3fdaa7ed3394ab48bdd065961736, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1981417003
 GameObject:
   m_ObjectHideFlags: 0
@@ -37316,7 +37176,6 @@ GameObject:
   - component: {fileID: 1986499201}
   - component: {fileID: 1986499200}
   - component: {fileID: 1986499199}
-  - component: {fileID: 1986499204}
   m_Layer: 0
   m_Name: Ruby_4
   m_TagString: Untagged
@@ -37433,25 +37292,6 @@ Transform:
   m_Father: {fileID: 1987257016}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1986499204
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986499198}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f794fc71f0f32444ba3da06705aaa83, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1987257015
 GameObject:
   m_ObjectHideFlags: 0
