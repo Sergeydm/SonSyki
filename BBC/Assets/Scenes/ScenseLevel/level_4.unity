@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 57332665}
   - component: {fileID: 57332664}
   - component: {fileID: 57332668}
+  - component: {fileID: 57332669}
   m_Layer: 0
   m_Name: pingvinpsd (3)
   m_TagString: Untagged
@@ -1379,6 +1380,25 @@ CircleCollider2D:
   m_Offset: {x: 0.04956627, y: -0.28806812}
   serializedVersion: 2
   m_Radius: 0.37437847
+--- !u!95 &57332669
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57332663}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 064e66c13640ec340a0b5769b1800142, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &67789597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,6 +3275,7 @@ GameObject:
   - component: {fileID: 118275915}
   - component: {fileID: 118275914}
   - component: {fileID: 118275918}
+  - component: {fileID: 118275919}
   m_Layer: 0
   m_Name: pingvinpsd (4)
   m_TagString: Untagged
@@ -3371,6 +3392,25 @@ CircleCollider2D:
   m_Offset: {x: 0.006591797, y: -0.30870417}
   serializedVersion: 2
   m_Radius: 0.36533573
+--- !u!95 &118275919
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118275913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66b8cd7cc2e871344b5c3c71eb633c29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &127272850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4438,7 @@ GameObject:
   - component: {fileID: 174813561}
   - component: {fileID: 174813560}
   - component: {fileID: 174813559}
+  - component: {fileID: 174813563}
   m_Layer: 0
   m_Name: Ruby_1
   m_TagString: Untagged
@@ -4514,6 +4555,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &174813563
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174813557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 495dda2347d6ef040a1bc6d270a7e326, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &176817445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12121,7 +12181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 43, y: -62.000122}
+  m_AnchoredPosition: {x: 43, y: -62.000244}
   m_SizeDelta: {x: -874.22534, y: -517.6001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &505668232
@@ -19067,6 +19127,7 @@ GameObject:
   - component: {fileID: 766130886}
   - component: {fileID: 766130885}
   - component: {fileID: 766130884}
+  - component: {fileID: 766130888}
   m_Layer: 0
   m_Name: Ruby_4
   m_TagString: Untagged
@@ -19183,6 +19244,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &766130888
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766130882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7e134d76f26e81448244abed8823098, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &768042475
 GameObject:
   m_ObjectHideFlags: 0
@@ -29581,6 +29661,7 @@ GameObject:
   - component: {fileID: 1009528939}
   - component: {fileID: 1009528938}
   - component: {fileID: 1009528942}
+  - component: {fileID: 1009528943}
   m_Layer: 0
   m_Name: pingvinpsd (2)
   m_TagString: Untagged
@@ -29697,6 +29778,25 @@ CircleCollider2D:
   m_Offset: {x: 0.01, y: -0.27}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!95 &1009528943
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009528937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7b271d7138401844a6c10c746ce7930, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1009879046
 GameObject:
   m_ObjectHideFlags: 0
@@ -35911,6 +36011,7 @@ GameObject:
   - component: {fileID: 1290529754}
   - component: {fileID: 1290529753}
   - component: {fileID: 1290529752}
+  - component: {fileID: 1290529756}
   m_Layer: 0
   m_Name: Ruby_2
   m_TagString: Untagged
@@ -36027,6 +36128,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1290529756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290529750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 368b5c813d862e6429d167b88e95de8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1290864794
 GameObject:
   m_ObjectHideFlags: 0
@@ -37285,6 +37405,7 @@ GameObject:
   - component: {fileID: 1384414489}
   - component: {fileID: 1384414488}
   - component: {fileID: 1384414487}
+  - component: {fileID: 1384414491}
   m_Layer: 0
   m_Name: Ruby_3
   m_TagString: Untagged
@@ -37401,6 +37522,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1384414491
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384414485}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 760b8c0d28178f347933601f80cf135e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1385263323
 GameObject:
   m_ObjectHideFlags: 0
@@ -52639,6 +52779,7 @@ GameObject:
   - component: {fileID: 2091687680}
   - component: {fileID: 2091687679}
   - component: {fileID: 2091687683}
+  - component: {fileID: 2091687684}
   m_Layer: 0
   m_Name: pingvinpsd (5)
   m_TagString: Untagged
@@ -52755,6 +52896,25 @@ CircleCollider2D:
   m_Offset: {x: -0.026359864, y: -0.2944699}
   serializedVersion: 2
   m_Radius: 0.34451294
+--- !u!95 &2091687684
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091687678}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c84e31ffce0f8e43982ec8bc25a34f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2091864189
 GameObject:
   m_ObjectHideFlags: 0
