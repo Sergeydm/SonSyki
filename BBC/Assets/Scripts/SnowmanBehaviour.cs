@@ -19,3 +19,4 @@ public class SnowmanBehaviour : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = movement;
     }
 }
+
