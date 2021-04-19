@@ -183,6 +183,8 @@ public class TaskCompletingActions : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         for (var i = 0; i < 9; i++)
+        {
             isTasksCompleted.Add(false);
+        }
     }
 }

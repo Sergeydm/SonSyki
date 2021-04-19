@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class ActivateTaskButtonBehaviour : MonoBehaviour
 {
-    [Header ("Игрок")]
-    public GameObject Player;
-    [Header ("Интерфейс")]
-    public GameObject Canvas;
-
+    private GameObject canvas;
     private RobotBehaviour robotBehaviour;
 
     public void ActivateTask()
     {
-        var currentTaskNumber = Canvas.GetComponent<GameData>().currentTaskNumber;
-        Canvas.GetComponent<TaskPanelBehaviour>().taskNumber = currentTaskNumber;
+        var currentTaskNumber = canvas.GetComponent<GameData>().currentTaskNumber;
+        canvas.GetComponent<TaskPanelBehaviour>().taskNumber = currentTaskNumber;
         robotBehaviour.currentMoveSpeed = robotBehaviour.freezeSpeed;
         robotBehaviour.currentRotateSpeed = robotBehaviour.freezeSpeed;
         StartCoroutine(TurnOnTaskCamera_COR(currentTaskNumber));
@@ -24,9 +20,9 @@ public class ActivateTaskButtonBehaviour : MonoBehaviour
     {
         gameObject.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        if (currentTaskNumber <= Canvas.GetComponent<TaskPanelBehaviour>().tasksCount)
+        if (currentTaskNumber <= canvas.GetComponent<TaskPanelBehaviour>().tasksCount)
         {
-            var currentCamera = Canvas.GetComponent<GameData>().currentSceneCamera;
+            var currentCamera = canvas.GetComponent<GameData>().currentSceneCamera;
             var currentCameraName = currentCamera.gameObject.name;
             if (currentCameraName.StartsWith("SceneCamera"))
             {
@@ -37,11 +33,12 @@ public class ActivateTaskButtonBehaviour : MonoBehaviour
                 yield return new WaitForSeconds(2f);
             }
         }
-        Canvas.GetComponent<TaskPanelBehaviour>().ChangeTask();
+        canvas.GetComponent<TaskPanelBehaviour>().ChangeTask();
     }
 
     private void Awake()
     {
-        robotBehaviour = Player.GetComponent<RobotBehaviour>();
+        canvas = GameObject.Find("Canvas");
+        robotBehaviour = GameObject.Find("robot1").GetComponent<RobotBehaviour>();
     }
 }

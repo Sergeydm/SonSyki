@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class TaskTriggersBehaviour : MonoBehaviour
 {
-    [Header("Интерфейс")]
-    public GameObject Canvas;
-
-    private InterfaceElements UI;
+    private GameObject activateTaskButton;
+    private GameObject canvas;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,12 +13,12 @@ public class TaskTriggersBehaviour : MonoBehaviour
         if (triggerName.StartsWith("TaskTrigger"))
         {
             var taskNumber = int.Parse(triggerName[triggerName.Length - 1].ToString());
-            var isTaskCompleted = Canvas.GetComponent<TaskCompletingActions>().isTasksCompleted[taskNumber - 1];
+            var isTaskCompleted = canvas.GetComponent<TaskCompletingActions>().isTasksCompleted[taskNumber - 1];
             if (!isTaskCompleted)
             {
-                UI.ActivateTaskButton.gameObject.SetActive(true);
-                UI.ActivateTaskButton.GetComponent<Animator>().Play("ScaleInterfaceUp");
-                Canvas.GetComponent<GameData>().currentTaskNumber = taskNumber;
+                activateTaskButton.SetActive(true);
+                activateTaskButton.GetComponent<Animator>().Play("ScaleInterfaceUp");
+                canvas.GetComponent<GameData>().currentTaskNumber = taskNumber;
             }
         }
     }
@@ -29,14 +27,15 @@ public class TaskTriggersBehaviour : MonoBehaviour
 
     private IEnumerator DeleteButton_COR()
     {
-        UI.ActivateTaskButton.GetComponent<Animator>().Play("CollapseInterface");
+        activateTaskButton.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.7f);
-        UI.ActivateTaskButton.gameObject.SetActive(false);
+        activateTaskButton.SetActive(false);
     }
 
     void Start()
     {
-        UI = Canvas.GetComponent<InterfaceElements>();
-        UI.ActivateTaskButton.gameObject.SetActive(false);
+        canvas = GameObject.Find("Canvas");
+        activateTaskButton = GameObject.Find("ActivateTaskButton");
+        activateTaskButton.SetActive(false);
     } 
 }

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class RobotBehaviour : MonoBehaviour
 {
-    [Header ("Текущие значения скорости движения и поворота")]
     public float currentMoveSpeed;
     public float currentRotateSpeed;
-    [Header("Начальные значения скорости движения и поворота")]
     public float moveSpeed = 3f;
     public float rotateSpeed = 3f;
-    [Header("Значения скорости движения и поворота при заморозке")]
     public float freezeSpeed = 0f;
 
     void FixedUpdate()

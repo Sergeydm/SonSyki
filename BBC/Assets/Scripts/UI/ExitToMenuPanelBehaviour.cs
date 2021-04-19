@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ExitToMenuPanelBehaviour : MonoBehaviour
 {
-    [Header("Интерфейс")]
-    public GameObject Canvas;
-
-    private InterfaceElements UI;
-    private GameObject blackScreenContent;
     private bool isPressed = false;
+    private GameObject exitToMenuPanel;
+    private GameObject blackScreen;
 
     public void ReturnToGame() => StartCoroutine(ReturnToGame_COR());
 
@@ -18,17 +15,17 @@ public class ExitToMenuPanelBehaviour : MonoBehaviour
 
     private IEnumerator ReturnToGame_COR()
     {
-        UI.ExitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
+        exitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
         isPressed = false;
     }
 
     private IEnumerator ExitToMenu_COR()
     {
-        UI.ExitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
+        exitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        UI.BlackScreen.transform.localScale = new Vector3(1, 1, 1);
-        blackScreenContent.GetComponent<Animator>().Play("AppearBlackScreen");
+        GameObject.Find("BlackScreen_Container").transform.localScale = new Vector3(1, 1, 1);
+        blackScreen.GetComponent<Animator>().Play("AppearBlackScreen");
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene(0);
     }
@@ -37,13 +34,14 @@ public class ExitToMenuPanelBehaviour : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape) && !isPressed)
         {
-            UI.ExitToMenuPanel.GetComponent<Animator>().Play("ScaleInterfaceUp");
+            exitToMenuPanel.GetComponent<Animator>().Play("ScaleInterfaceUp");
             isPressed = true;
         }
     }
 
     private void Start()
     {
-        blackScreenContent = UI.BlackScreen.transform.GetChild(0).gameObject;
+        exitToMenuPanel = GameObject.Find("ExitToMenuPanel");
+        blackScreen = GameObject.Find("BlackScreen");
     }
 }
