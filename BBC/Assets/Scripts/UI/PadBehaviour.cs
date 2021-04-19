@@ -5,35 +5,39 @@ using UnityEngine.UI;
 
 public class PadBehaviour : MonoBehaviour
 {
-    [Header("Интерфейс")]
-    public GameObject Canvas;
-    [HideInInspector]
-    public string StartCode;
-
-    private InterfaceElements UI;
+    public string startCode;
+    public Vector3 padPosition;
+    private InputField codeField;
+    private InputField resultField;
+    private InputField outputField;
     private bool isPadTurnedOff; 
 
     public void TurnOnOff()
     {
         if (isPadTurnedOff)
         {
-            UI.CodeField.text = "";
-            UI.ResultField.text = "";
-            UI.OutputField.text = "";
+            codeField.text = "";
+            resultField.text = "";
+            outputField.text = "";
             isPadTurnedOff = false;
         }
         else 
         {
-            UI.CodeField.text = StartCode;
+            codeField.text = startCode;
             isPadTurnedOff = true;
         }
     }
 
-    public void ResetCode() => UI.CodeField.text = StartCode;
+    public void ResetCode()
+    {
+        codeField.text = startCode;
+    }
 
     private void Start()
     {
-        UI = Canvas.GetComponent<InterfaceElements>();
+        codeField = GameObject.Find("CodeField").GetComponent<InputField>();
+        resultField = GameObject.Find("ResultField").GetComponent<InputField>();
+        outputField = GameObject.Find("OutputField").GetComponent<InputField>();
         isPadTurnedOff = false;
     }
 }

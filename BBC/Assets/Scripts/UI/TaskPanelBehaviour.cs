@@ -6,18 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class TaskPanelBehaviour : MonoBehaviour
 {
-    [Header ("Номер текущего задания")]
     public int taskNumber;
-    [HideInInspector]
     public int tasksCount;
-    [Header ("Игрок")]
-    public GameObject Robot;
-    [Header ("Интерфейс")]
-    public GameObject Canvas;
-    
     private int sceneIndex;
-    private InterfaceElements UI;
-    private PadBehaviour padBehaviour;
+    private GameObject canvas;
+    private GameObject startButton;
+    private GameObject taskPanel;
+    private Button activateTaskButton;
+    private Button nextLevelButton;
+    private Button closeTaskButton;
+    private Text currentTaskTitle;
+    private Text currentTaskDescription;
+    private Text currentExtendedTaskTitle;
+    private Text currentExtendedTaskDescription;
+    private InputField codeField;
+    private InputField resultField;
+    private InputField outputField;
+    private PadBehaviour pad;
     private RobotBehaviour robotBehaviour;
     private List<string> taskTitles = new List<string>();
     private List<string> taskDescriptions = new List<string>();
@@ -28,37 +33,37 @@ public class TaskPanelBehaviour : MonoBehaviour
     {
         if (taskNumber <= tasksCount)
         {
-            UI.TaskTitle.text = taskTitles[taskNumber - 1];
-            UI.ExtendedTaskTitle.text = taskTitles[taskNumber - 1];
-            UI.TaskDescription.text = taskDescriptions[taskNumber - 1];
-            UI.ExtendedTaskDescription.text = taskExtendedDescriptions[taskNumber - 1];
-            padBehaviour.StartCode = taskStartCodes[taskNumber - 1];
-            UI.CodeField.text = padBehaviour.StartCode;
-            UI.ResultField.text = "";
-            UI.OutputField.text = "";
-            Canvas.GetComponent<ExtendedTaskPanelBehaviour>().OpenTaskExtendedDescription_Special();
-            UI.StartButton.GetComponent<StartButtonBehaviour>().taskNumber = taskNumber;
+            currentTaskTitle.text = taskTitles[taskNumber - 1];
+            currentExtendedTaskTitle.text = taskTitles[taskNumber - 1];
+            currentTaskDescription.text = taskDescriptions[taskNumber - 1];
+            currentExtendedTaskDescription.text = taskExtendedDescriptions[taskNumber - 1];
+            pad.startCode = taskStartCodes[taskNumber - 1];
+            codeField.text = pad.startCode;
+            resultField.text = "";
+            outputField.text = "";
+            canvas.GetComponent<ExtendedTaskPanelBehaviour>().OpenTaskExtendedDescription_Special();
+            startButton.GetComponent<StartButtonBehaviour>().taskNumber = taskNumber;
         }
         else
         {
             GameObject.Find("CloseExtendedTaskButton").SetActive(false);
-            UI.NextLevelButton.gameObject.SetActive(true);
-            Canvas.GetComponent<ExtendedTaskPanelBehaviour>().OpenTaskExtendedDescription_Special();
+            nextLevelButton.gameObject.SetActive(true);
+            canvas.GetComponent<ExtendedTaskPanelBehaviour>().OpenTaskExtendedDescription_Special();
             switch (sceneIndex)
             {
                 case 1:
-                    UI.ExtendedTaskTitle.text = "Поздравляем!";
-                    UI.ExtendedTaskDescription.text = "     Вы прекрасно освоили операции с числовыми данными, а ваше приключение только начинается.\n" +
+                    currentExtendedTaskTitle.text = "Поздравляем!";
+                    currentExtendedTaskDescription.text = "     Вы прекрасно освоили операции с числовыми данными, а ваше приключение только начинается.\n" +
                                                           "     В путь!";
                     break;
                 case 2:
-                    UI.ExtendedTaskTitle.text = "Поздравляем!";
-                    UI.ExtendedTaskDescription.text = "     Вы смогли пройти этот запутанный лес-лабиринт, а заодно получили навыки работы с условиями.\n" +
+                    currentExtendedTaskTitle.text = "Поздравляем!";
+                    currentExtendedTaskDescription.text = "     Вы смогли пройти этот запутанный лес-лабиринт, а заодно получили навыки работы с условиями.\n" +
                                                           "     Не будем терять здесь больше времени и двинемся дальше!";
                     break;
                 case 6:
-                    UI.ExtendedTaskTitle.text = "Поздравляем!";
-                    UI.ExtendedTaskDescription.text = "     Вы отлично справились с первыми заданиями. Это не может не радовать! Рад и наш друг <name>, который надеется на нашу помощь в поиске сокровищ. Отправимся же на улицу и применим знания на железном друге. Во время путешествия мы освоим новые возможности " +
+                    currentExtendedTaskTitle.text = "Поздравляем!";
+                    currentExtendedTaskDescription.text = "     Вы отлично справились с первыми заданиями. Это не может не радовать! Рад и наш друг <name>, который надеется на нашу помощь в поиске сокровищ. Отправимся же на улицу и применим знания на железном друге. Во время путешествия мы освоим новые возможности " +
                                                   "языка и отточим наши навыки.\n" +
                                                   "     Если вы готовы, тогда поехали!";
                     break;
@@ -70,8 +75,8 @@ public class TaskPanelBehaviour : MonoBehaviour
 
     public void ShowIntroduction_Level_1()
     {
-        UI.ExtendedTaskTitle.text = "Новые горизонты";
-        UI.ExtendedTaskDescription.text = "     Итак, наше путешествие начинается!\n" +
+        currentExtendedTaskTitle.text = "Новые горизонты";
+        currentExtendedTaskDescription.text = "     Итак, наше путешествие начинается!\n" +
                                               "     Пока не происходит ничего интересного. Можно спокойно полюбоваться природой... и продолжить осваивать программирование!\n" +
                                               "     Раз уж робот больше не заперт с нами в четырёх стенах, можно наконец-то поуправлять им. Нажимай клавиши <b><color=green>WASD</color></b> для передвижения и поворота. Когда появится что-нибудь интересное (например, задание), внизу появится подсказка." +
                                               "Нажми на неё, и сможешь узнать что-то новое.\n" +
@@ -80,8 +85,8 @@ public class TaskPanelBehaviour : MonoBehaviour
 
     public void ShowIntroduction_Level_2()
     {
-        UI.ExtendedTaskTitle.text = "Куда ведёт тропа?";
-        UI.ExtendedTaskDescription.text = "     Двигаясь по тропинке, робот (а вместе с ним и мы) попали в лес. Как бы в нём не заблудиться...\n" +
+        currentExtendedTaskTitle.text = "Куда ведёт тропа?";
+        currentExtendedTaskDescription.text = "     Двигаясь по тропинке, робот (а вместе с ним и мы) попали в лес. Как бы в нём не заблудиться...\n" +
                                               "     Наш железный друг знает, где мы должны выйти, но ориентироваться на местности его программа, похоже, не умеет. Без нашей помощи здесь не обойтись.\n" +
                                               "     Судя по всему, важные места здесь помечены <b><color=green>прямоугольными табличками</color></b>. Если увидите такие, обязательно загляните, наверняка мы сможем узнать что-нибудь полезное.";
     }
@@ -479,18 +484,18 @@ public class TaskPanelBehaviour : MonoBehaviour
 
     private IEnumerator CloseTask_COR()
     {
-        UI.TaskPanel.GetComponent<Animator>().Play("MoveLeft_TaskPanel");
-        padBehaviour.GetComponent<Animator>().Play("MoveRight_Pad");
+        taskPanel.GetComponent<Animator>().Play("MoveLeft_TaskPanel");
+        pad.GetComponent<Animator>().Play("MoveRight_Pad");
         if (sceneIndex != 6)
         {
-            UI.CloseTaskButton.transform.localScale = new Vector3(0, 0, 0);
+            closeTaskButton.transform.localScale = new Vector3(0, 0, 0);
             yield return new WaitForSeconds(0.7f);
-            Canvas.GetComponent<GameData>().currentSceneCamera.GetComponent<Animator>().Play("MoveToScene_TaskCamera_" + taskNumber);
+            canvas.GetComponent<GameData>().currentSceneCamera.GetComponent<Animator>().Play("MoveToScene_TaskCamera_" + taskNumber);
             yield return new WaitForSeconds(2f);
-            var isTaskCompleted = Canvas.GetComponent<TaskCompletingActions>().isTasksCompleted[taskNumber - 1];
+            var isTaskCompleted = canvas.GetComponent<TaskCompletingActions>().isTasksCompleted[taskNumber - 1];
             if (!isTaskCompleted)
             {
-                UI.ActivateTaskButton.GetComponent<Animator>().Play("ScaleInterfaceUp");
+                activateTaskButton.GetComponent<Animator>().Play("ScaleInterfaceUp");
                 yield return new WaitForSeconds(0.75f);
             }
             robotBehaviour.currentMoveSpeed = robotBehaviour.moveSpeed;
@@ -498,12 +503,28 @@ public class TaskPanelBehaviour : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        UI = Canvas.GetComponent<InterfaceElements>();
-        padBehaviour = UI.Pad.GetComponent<PadBehaviour>();
-        robotBehaviour = Robot.GetComponent<RobotBehaviour>();
-        UI.NextLevelButton.gameObject.SetActive(false);
+        canvas = GameObject.Find("Canvas");
+        currentExtendedTaskTitle = GameObject.Find("TaskTitle_Extended").GetComponent<Text>();
+        currentExtendedTaskDescription = GameObject.Find("TaskDescription_Extended").GetComponent<Text>();
+    }
+
+    private void Start()
+    {   
+        startButton = GameObject.Find("StartButton");
+        taskPanel = GameObject.Find("TaskPanel");
+        currentTaskTitle = GameObject.Find("TaskTitle").GetComponent<Text>();
+        currentTaskDescription = GameObject.Find("TaskDescription").GetComponent<Text>();
+        pad = GameObject.Find("Pad").GetComponent<PadBehaviour>();
+        robotBehaviour = GameObject.Find("robot1").GetComponent<RobotBehaviour>();
+        codeField = GameObject.Find("CodeField").GetComponent<InputField>();
+        resultField = GameObject.Find("ResultField").GetComponent<InputField>();
+        outputField = GameObject.Find("OutputField").GetComponent<InputField>();
+        activateTaskButton = GameObject.Find("ActivateTaskButton").GetComponent<Button>();
+        nextLevelButton = GameObject.Find("NextLevelButton").GetComponent<Button>();
+        closeTaskButton = GameObject.Find("CloseTaskButton").GetComponent<Button>();
+        nextLevelButton.gameObject.SetActive(false);
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         switch(sceneIndex)
         {

@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
-    [Header ("Текущая включенная камера на сцене")]
     public Camera currentSceneCamera;
-    [Header("Номер текущего задания")]
     public int currentTaskNumber;
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+            currentSceneCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        else currentSceneCamera = GameObject.Find("SceneCamera_1").GetComponent<Camera>();
+    }
 }

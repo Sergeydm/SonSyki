@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class SwitchCameraBehaviour : MonoBehaviour
 {
-    [Header ("Камеры для переключения")]
-    [Tooltip ("Камера, которая будет выключена")]
     public Camera PreviousCamera;
-    [Tooltip("Камера, которая будет включена")]
     public Camera NextCamera;
-    [Header("Интерфейс")]
-    public GameObject Canvas;
+    private GameObject canvas;
 
     private void OnTriggerEnter(Collider other)
     {
         PreviousCamera.enabled = false;
         NextCamera.enabled = true;
-        Canvas.GetComponent<GameData>().currentSceneCamera = NextCamera;
+        canvas.GetComponent<GameData>().currentSceneCamera = NextCamera;
+    }
+
+    private void Start()
+    {
+        canvas = GameObject.Find("Canvas");
     }
 }
