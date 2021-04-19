@@ -8,14 +8,15 @@ using RoslynCSharp;
 
 public class StartButtonBehaviour : MonoBehaviour
 {
+    [Header ("Номер текущего задания")]
     public int taskNumber;
+    [Header("Игрок")]
+    public GameObject Robot;
+    [Header("Интерфейс")]
+    public GameObject Canvas;
+
+    private InterfaceElements UI;
     private string robotManagementCode;
-    private InputField codeField;
-    private InputField resultField;
-    private InputField outputField;
-    private GameObject robot;
-    private GameObject canvas;
-    private Button closeTaskButton;
 
     public void ExecuteCode()
     {
@@ -45,32 +46,27 @@ public class StartButtonBehaviour : MonoBehaviour
             }
             ScriptDomain domain = ScriptDomain.CreateDomain("MyDomain");
             ScriptType type = domain.CompileAndLoadMainSource(robotManagementCode);
-            ScriptProxy proxy = type.CreateInstance(robot);
+            ScriptProxy proxy = type.CreateInstance(Robot);
             Tuple<bool, string> result = (Tuple<bool, string>)proxy.Call("isTaskCompleted_" + taskNumber);
             if (result.Item1)
             {
-                resultField.text = "<color=green>Задание выполнено!</color>";
-                canvas.GetComponent<TaskCompletingActions>().MakeActions(sceneIndex, taskNumber);
-                closeTaskButton.transform.localScale = new Vector3(0, 0, 0);
+                UI.ResultField.text = "<color=green>Задание выполнено!</color>";
+                Canvas.GetComponent<TaskCompletingActions>().MakeActions(sceneIndex, taskNumber);
+                UI.CloseTaskButton.transform.localScale = new Vector3(0, 0, 0);
             }
-            else resultField.text = "Есть ошибки. Попробуй ещё раз!";
-            outputField.text = result.Item2;
+            else UI.ResultField.text = "Есть ошибки. Попробуй ещё раз!";
+            UI.OutputField.text = result.Item2;
         }
         catch
         {
             Debug.Log("Exception!!!");
-            resultField.text = "Есть ошибки. Попробуй ещё раз!";
+            UI.ResultField.text = "Есть ошибки. Попробуй ещё раз!";
         }
     }
 
     private void Start()
     {
-        codeField = GameObject.Find("CodeField").GetComponent<InputField>();
-        resultField = GameObject.Find("ResultField").GetComponent<InputField>();
-        outputField = GameObject.Find("OutputField").GetComponent<InputField>();
-        closeTaskButton = GameObject.Find("CloseTaskButton").GetComponent<Button>();
-        robot = GameObject.Find("robot1");
-        canvas = GameObject.Find("Canvas");
+        UI = Canvas.GetComponent<InterfaceElements>();
     }
 
     private string GetCheckingMethods_Level_1()
@@ -272,7 +268,7 @@ using System.Collections.Generic;
 
 public class RobotManagementClass : MonoBehaviour
 {" + 
-   codeField.text + 
+   UI.CodeField.text + 
    checkingMethods + @"
 }";
     }

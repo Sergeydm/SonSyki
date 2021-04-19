@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ExitToMenuPanelBehaviour : MonoBehaviour
 {
+    [Header("Интерфейс")]
+    public GameObject Canvas;
+
+    private InterfaceElements UI;
+    private GameObject blackScreenContent;
     private bool isPressed = false;
-    private GameObject exitToMenuPanel;
-    private GameObject blackScreen;
 
     public void ReturnToGame() => StartCoroutine(ReturnToGame_COR());
 
@@ -15,17 +18,17 @@ public class ExitToMenuPanelBehaviour : MonoBehaviour
 
     private IEnumerator ReturnToGame_COR()
     {
-        exitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
+        UI.ExitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
         isPressed = false;
     }
 
     private IEnumerator ExitToMenu_COR()
     {
-        exitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
+        UI.ExitToMenuPanel.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        GameObject.Find("BlackScreen_Container").transform.localScale = new Vector3(1, 1, 1);
-        blackScreen.GetComponent<Animator>().Play("AppearBlackScreen");
+        UI.BlackScreen.transform.localScale = new Vector3(1, 1, 1);
+        blackScreenContent.GetComponent<Animator>().Play("AppearBlackScreen");
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene(0);
     }
@@ -34,14 +37,13 @@ public class ExitToMenuPanelBehaviour : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape) && !isPressed)
         {
-            exitToMenuPanel.GetComponent<Animator>().Play("ScaleInterfaceUp");
+            UI.ExitToMenuPanel.GetComponent<Animator>().Play("ScaleInterfaceUp");
             isPressed = true;
         }
     }
 
     private void Start()
     {
-        exitToMenuPanel = GameObject.Find("ExitToMenuPanel");
-        blackScreen = GameObject.Find("BlackScreen");
+        blackScreenContent = UI.BlackScreen.transform.GetChild(0).gameObject;
     }
 }

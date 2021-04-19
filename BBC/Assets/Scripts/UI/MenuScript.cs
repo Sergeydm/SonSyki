@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    private GameObject player;
-    private GameObject camera;
-    private GameObject mainMenu;
-    private GameObject settings;
-    private GameObject urls;
-    private GameObject levels;
-    private GameObject blackScreen;
+    [Header ("Экраны меню")]
+    public GameObject MainMenu;
+    public GameObject Levels;
+    public GameObject Settings;
+    public GameObject Partners;
+
+    [Header ("Для анимаций и переходов")]
+    public GameObject MenuCamera;
+    public GameObject Robot;
+    public GameObject FireLight;
+    public GameObject BlackScreen;
 
     public void GoTo_Settings() => StartCoroutine(GoTo_Settings_COR());
 
@@ -44,67 +48,67 @@ public class MenuScript : MonoBehaviour
 
     private IEnumerator GoTo_Settings_COR()
     {
-        mainMenu.GetComponent<Animator>().Play("CollapseInterface");
+        MainMenu.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveCamera_1");
+        MenuCamera.GetComponent<Animator>().Play("MoveCamera_1");
         yield return new WaitForSeconds(2f);
-        settings.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        Settings.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator GoTo_Partners_COR()
     {
-        mainMenu.GetComponent<Animator>().Play("CollapseInterface");
+        MainMenu.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveCamera_2");
+        MenuCamera.GetComponent<Animator>().Play("MoveCamera_2");
         yield return new WaitForSeconds(2f);
-        urls.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        Partners.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator GoTo_Play_COR()
     {
-        mainMenu.GetComponent<Animator>().Play("CollapseInterface");
+        MainMenu.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveCamera_3");
+        MenuCamera.GetComponent<Animator>().Play("MoveCamera_3");
         yield return new WaitForSeconds(2f);
-        levels.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        Levels.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator ReturnToMainMenuFrom_Settings_COR()
     {
-        settings.GetComponent<Animator>().Play("CollapseInterface");
+        Settings.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveBackCamera_1");
+        MenuCamera.GetComponent<Animator>().Play("MoveBackCamera_1");
         yield return new WaitForSeconds(2f);
-        mainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        MainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator ReturnToMainMenuFrom_Partners_COR()
     {
-        urls.GetComponent<Animator>().Play("CollapseInterface");
+        Partners.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveBackCamera_2");
+        MenuCamera.GetComponent<Animator>().Play("MoveBackCamera_2");
         yield return new WaitForSeconds(2f);
-        mainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        MainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator ReturnToMainMenuFrom_Play_COR()
     {
-        levels.GetComponent<Animator>().Play("CollapseInterface");
+        Levels.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveBackCamera_3");
+        MenuCamera.GetComponent<Animator>().Play("MoveBackCamera_3");
         yield return new WaitForSeconds(2f);
-        mainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
+        MainMenu.GetComponent<Animator>().Play("ScaleInterfaceUp");
     }
 
     private IEnumerator Start_Level_COR(int levelNumber)
     {
-        levels.GetComponent<Animator>().Play("CollapseInterface");
+        Levels.GetComponent<Animator>().Play("CollapseInterface");
         yield return new WaitForSeconds(0.75f);
-        camera.GetComponent<Animator>().Play("MoveBackCamera_3");
+        MenuCamera.GetComponent<Animator>().Play("MoveBackCamera_3");
         yield return new WaitForSeconds(2f);
-        player.GetComponent<Animator>().Play("Walk_MainMenu");
+        Robot.GetComponent<Animator>().Play("Walk_MainMenu");
         yield return new WaitForSeconds(5f);
-        blackScreen.GetComponent<Animator>().Play("AppearBlackScreen");
+        BlackScreen.GetComponent<Animator>().Play("AppearBlackScreen");
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene(levelNumber);
 
@@ -112,13 +116,6 @@ public class MenuScript : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Robot");
-        camera = GameObject.Find("Camera");
-        mainMenu = GameObject.Find("MainMenu");
-        settings = GameObject.Find("Settings");
-        urls = GameObject.Find("URLs");
-        levels = GameObject.Find("Levels");
-        blackScreen = GameObject.Find("BlackScreen");
-        GameObject.Find("FireLight").GetComponent<Animator>().Play("Fire");
+        FireLight.GetComponent<Animator>().Play("Fire");
     }
 }
