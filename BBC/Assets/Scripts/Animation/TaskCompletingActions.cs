@@ -487,21 +487,4 @@ public class TaskCompletingActions : MonoBehaviour
         }
     }
     #endregion
-
-    #region Действия для 4-го уровня
-    private IEnumerator MakeActions_Level_4_Task_1()
-    {
-        yield return StartCoroutine(WaitAndHideTaskPanel_COR());
-        ReturnToScene();
-        yield return new WaitForSeconds(2f);
-        var npc = player.GetComponent<VIDEDemoPlayer>().inTrigger.transform.parent;
-        npc.GetChild(1).gameObject.SetActive(false);
-        npc.GetChild(2).gameObject.SetActive(true);
-        npc.GetChild(2).GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.05f);
-        Canvas.GetComponent<VIDEUIManager1>().Interact(player.GetComponent<VIDEDemoPlayer>().inTrigger);
-        gameData.Player.GetComponent<TriggersBehaviour>().DeleteActionButton();
-        npc.GetChild(2).gameObject.SetActive(false);
-    }
-    #endregion
 }

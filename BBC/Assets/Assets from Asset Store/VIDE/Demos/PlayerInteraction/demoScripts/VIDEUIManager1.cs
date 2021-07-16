@@ -40,7 +40,6 @@ public class VIDEUIManager1 : MonoBehaviour
 
     //Reference to the player script
     public VIDEDemoPlayer player;
-    public Canvas Canvas;
 
     //We'll be using this to store references of the current player choices
     private List<Text> currentChoices = new List<Text>();
@@ -147,7 +146,7 @@ public class VIDEUIManager1 : MonoBehaviour
                 for (int i = 0; i < currentChoices.Count; i++)
                 {
                     currentChoices[i].color = Color.white;
-                    if (i == data.commentIndex) currentChoices[i].color = Color.white;
+                    if (i == data.commentIndex) currentChoices[i].color = Color.yellow;
                 }
             }
         }
@@ -243,12 +242,12 @@ public class VIDEUIManager1 : MonoBehaviour
         {
             GameObject newOp = Instantiate(playerChoicePrefab.gameObject, playerChoicePrefab.transform.position, Quaternion.identity) as GameObject;
             newOp.transform.SetParent(playerChoicePrefab.transform.parent, true);
-            //newOp.GetComponent<RectTransform>().anchoredPosition = new Vector2((0, 20 - (20 * i)));
+            newOp.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 20 - (20 * i));
             newOp.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            newOp.GetComponent<Text>().text = choices[i];
+            newOp.GetComponent<UnityEngine.UI.Text>().text = choices[i];
             newOp.SetActive(true);
 
-            currentChoices.Add(newOp.GetComponent<Text>()); 
+            currentChoices.Add(newOp.GetComponent<UnityEngine.UI.Text>()); 
         }
     }
 
@@ -372,7 +371,7 @@ public class VIDEUIManager1 : MonoBehaviour
             //Checks for extraData that concerns font size (CrazyCap node 2)
             if (data.extraData[data.commentIndex].Contains("fs"))
             {
-                int fSize = 25;
+                int fSize = 14;
 
                 string[] fontSize = data.extraData[data.commentIndex].Split(","[0]);
                 int.TryParse(fontSize[1], out fSize);
@@ -380,7 +379,7 @@ public class VIDEUIManager1 : MonoBehaviour
             }
             else
             {
-                NPC_Text.fontSize = 25;
+                NPC_Text.fontSize = 14;
             }
         }
     }
@@ -463,12 +462,10 @@ public class VIDEUIManager1 : MonoBehaviour
     //Check task progression
     void CheckTasks()
     {
-        /*if (player.demo_ItemInventory.Count == 5)
+        if (player.demo_ItemInventory.Count == 5)
             QuestChartDemo.SetQuest(2, false);
 
-        QuestChartDemo.CheckTaskCompletion(VD.nodeData);*/
-
-        Canvas.GetComponent<DialogCompletingActions>().MakeActions();
+        QuestChartDemo.CheckTaskCompletion(VD.nodeData);
     }
 
     #endregion
