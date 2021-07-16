@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 5437260875653983662}
   - component: {fileID: 5437260875653983663}
   m_Layer: 0
-  m_Name: Robot_Player
+  m_Name: robot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,7 +802,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 2
   m_Constraints: 116
   m_CollisionDetection: 3
@@ -830,7 +830,7 @@ Animator:
   m_GameObject: {fileID: 5166875775634873194}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2bd8b46d26e107a4ea169b1335f0cc23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

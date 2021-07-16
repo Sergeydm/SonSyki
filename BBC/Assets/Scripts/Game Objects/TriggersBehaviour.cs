@@ -13,13 +13,9 @@ public class TriggersBehaviour : MonoBehaviour
     public GameObject EnterTriggers;
     [Header("Триггеры активации сценарного момента")]
     public GameObject ScenarioTriggers;
-    [Header("Диалоговые персонажи с триггерами")]
-    public GameObject DialogCharacters;
 
     private InterfaceElements UI;
     private InterfaceAnimations UIAnimations;
-
-    public void DeleteActionButton() => StartCoroutine(DeleteActionButton_COR());
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,10 +45,6 @@ public class TriggersBehaviour : MonoBehaviour
             ActivateButton("Сохранить игру", ActionButtonBehaviour.TriggerType.Save);
             Canvas.GetComponent<GameData>().CurrentSaveTriggerNumber = int.Parse(triggerName.Split('_')[1]);
         }
-        else if (triggerName.StartsWith("DialogTrigger"))
-        {
-            ActivateButton("Поговорить", ActionButtonBehaviour.TriggerType.Dialog);
-        }
         else if (triggerName.StartsWith("Coin"))
             StartCoroutine(PickCoinUp_COR(other));
     }
@@ -61,7 +53,7 @@ public class TriggersBehaviour : MonoBehaviour
     {
         var triggerName = other.gameObject.name;
         if (triggerName.StartsWith("TaskTrigger") || triggerName.StartsWith("EnterTrigger") || triggerName.StartsWith("ScenarioTrigger")
-            || triggerName.StartsWith("SaveTrigger") || triggerName.StartsWith("DialogTrigger"))
+            || triggerName.StartsWith("SaveTrigger"))
             StartCoroutine(DeleteActionButton_COR());
     }
 
@@ -98,18 +90,6 @@ public class TriggersBehaviour : MonoBehaviour
             }
         }
     }
-
-    private void ActivateNpcMarks()
-    {
-        if (DialogCharacters != null)
-        {
-            for (var i = 0; i < DialogCharacters.transform.childCount; i++)
-            {
-                if (DialogCharacters.transform.GetChild(i).childCount > 1)
-                    DialogCharacters.transform.GetChild(i).GetChild(1).GetComponentInChildren<Animator>().Play("RotateExclamationMark");
-            }
-        }
-    }
     
     void Start()
     {
@@ -119,6 +99,5 @@ public class TriggersBehaviour : MonoBehaviour
         RotateMarks(TaskTriggers);
         RotateMarks(EnterTriggers);
         RotateMarks(ScenarioTriggers);
-        ActivateNpcMarks();
     } 
 }

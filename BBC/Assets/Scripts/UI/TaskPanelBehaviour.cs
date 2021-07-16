@@ -68,21 +68,13 @@ public class TaskPanelBehaviour : MonoBehaviour
         var isTaskCompleted = gameData.HasTasksCompleted[taskNumber - 1];
         if (!isTaskCompleted)
         {
-            if (Canvas.GetComponent<ActionButtonBehaviour>().triggerType == ActionButtonBehaviour.TriggerType.Dialog)
-            {
-                var npcMark = gameData.Player.GetComponent<VIDEDemoPlayer>().inTrigger.transform.GetChild(0).gameObject;
-                npcMark.SetActive(true);
-                npcMark.GetComponentInChildren<Animator>().Play("RotateExclamationMark");
-            }
-            else
-            {
-                var taskMark = gameData.Player.GetComponent<TriggersBehaviour>().TaskTriggers.transform.GetChild(taskNumber - 1);
-                taskMark.gameObject.SetActive(true);
-                taskMark.GetComponentInChildren<Animator>().Play("RotateExclamationMark");
-            }          
+            var taskMark = gameData.Player.GetComponent<TriggersBehaviour>().TaskTriggers.transform.GetChild(taskNumber - 1);
+            taskMark.gameObject.SetActive(true);
+            taskMark.GetComponentInChildren<Animator>().Play("RotateExclamationMark");
             StartCoroutine(Canvas.GetComponent<InterfaceAnimations>().ShowActionButton_COR());
         }
-        robotBehaviour.UnfreezePlayer();
+        robotBehaviour.currentMoveSpeed = robotBehaviour.moveSpeed;
+        robotBehaviour.currentRotateSpeed = robotBehaviour.rotateSpeed;
     }
 
     private void Start()
