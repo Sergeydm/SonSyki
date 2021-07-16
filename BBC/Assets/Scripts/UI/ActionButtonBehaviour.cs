@@ -10,8 +10,7 @@ public class ActionButtonBehaviour : MonoBehaviour
         Task,
         SceneChange,
         ScenarioMoment,
-        Save,
-        Dialog
+        Save
     }
 
     [Header ("Интерфейс")]
@@ -43,28 +42,27 @@ public class ActionButtonBehaviour : MonoBehaviour
             case TriggerType.Save:
                 StartCoroutine(SaveGame_COR());
                 break;
-            case TriggerType.Dialog:
-                ActivateDialog();
-                break;
         }
     }
 
-    public void ActivateTask(bool hasActivateButton = true)
+    public void ActivateTask()
     {
         var currentTaskNumber = gameData.CurrentTaskNumber;
         Canvas.GetComponent<TaskPanelBehaviour>().taskNumber = currentTaskNumber;
         gameData.IsTaskStarted = true;
         UI.IDEButton.interactable = true;
-        robotBehaviour.FreezePlayer();
+        robotBehaviour.currentMoveSpeed = robotBehaviour.freezeSpeed;
+        robotBehaviour.currentRotateSpeed = robotBehaviour.freezeSpeed;
         if (gameData.SceneIndex != 0)
             taskTriggers.transform.GetChild(currentTaskNumber - 1).gameObject.SetActive(false);
-        StartCoroutine(TurnOnTaskCamera_COR(currentTaskNumber, hasActivateButton));
+        StartCoroutine(TurnOnTaskCamera_COR(currentTaskNumber));
     }
 
     public void ChangeScene()
     {
         var triggerNumber = gameData.CurrentChangeSceneTriggerNumber;
-        robotBehaviour.FreezePlayer();
+        robotBehaviour.currentMoveSpeed = robotBehaviour.freezeSpeed;
+        robotBehaviour.currentRotateSpeed = robotBehaviour.freezeSpeed;
         if (gameData.SceneIndex != 0)
             enterTriggers.transform.GetChild(triggerNumber - 1).gameObject.SetActive(false);
         StartCoroutine(ChangeScene_COR(triggerNumber));
@@ -81,17 +79,7 @@ public class ActionButtonBehaviour : MonoBehaviour
         }
     }
 
-    public void ActivateDialog() => StartCoroutine(ActivateDialog_COR());
-
-    private IEnumerator ActivateDialog_COR()
-    {
-        var dialogTrigger = gameData.Player.GetComponent<VIDEDemoPlayer>().inTrigger;
-        dialogTrigger.transform.GetChild(0).gameObject.SetActive(false);
-        yield return StartCoroutine(Canvas.GetComponent<InterfaceAnimations>().HideActionButton_COR());      
-        Canvas.GetComponent<VIDEUIManager1>().Interact(dialogTrigger);
-    }
-
-    private IEnumerator SaveGame_COR()
+    public IEnumerator SaveGame_COR()
     {
         UI.ActionButton.interactable = false;
         Canvas.GetComponent<SaveLoad>().Save();
@@ -109,10 +97,9 @@ public class ActionButtonBehaviour : MonoBehaviour
         UI.ActionButton.interactable = true;
     }
 
-    private IEnumerator TurnOnTaskCamera_COR(int currentTaskNumber, bool hasActivateButton = true)
+    private IEnumerator TurnOnTaskCamera_COR(int currentTaskNumber)
     {
-        if (hasActivateButton)
-            yield return StartCoroutine(Canvas.GetComponent<InterfaceAnimations>().HideActionButton_COR());
+        yield return StartCoroutine(Canvas.GetComponent<InterfaceAnimations>().HideActionButton_COR());
         if (currentTaskNumber <= Canvas.GetComponent<TaskPanelBehaviour>().tasksCount)
         {
             var currentCamera = gameData.CurrentSceneCamera;
@@ -146,7 +133,8 @@ public class ActionButtonBehaviour : MonoBehaviour
         blackScreen.GetComponent<Animator>().Play("HideBlackScreen");
         yield return new WaitForSeconds(2f);
         UI.BlackScreen.transform.localScale = new Vector3(0, 0, 0);
-        robotBehaviour.UnfreezePlayer();
+        robotBehaviour.currentMoveSpeed = robotBehaviour.moveSpeed;
+        robotBehaviour.currentRotateSpeed = robotBehaviour.rotateSpeed;
     }    
 
     private IEnumerator ActivateScenarioMoment_Level_3_COR(int triggerNumber)
