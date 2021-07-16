@@ -1,0 +1,60 @@
+{
+  "Items": [
+    {
+      "ID": 1,
+      "Title": "Название",
+      "Description": "Описание",
+      "ExtendedDescription": "Расширенное описание",
+      "StartCode": "public int Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 2,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 3,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 4,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public int Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 5,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 6,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 7,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    },
+    {
+      "ID": 8,
+      "Title": "",
+      "Description": "",
+      "ExtendedDescription": "",
+      "StartCode": "public void Execute()\n{\n    \n    \n}\n"
+    }
+  ]
+}
