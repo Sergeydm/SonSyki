@@ -132,7 +132,7 @@ public class GameData : MonoBehaviour
             }
             else
             {
-                if (PlayerPrefs.GetInt("SceneIndex") == SceneIndex)
+                if (PlayerPrefs.GetInt("SceneIndex") == SceneIndex && SceneIndex != 4) // второе условие позже убрать
                     gameObject.GetComponent<SaveLoad>().Load();
             }
         }
