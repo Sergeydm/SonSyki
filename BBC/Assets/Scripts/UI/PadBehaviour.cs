@@ -211,6 +211,9 @@ public class PadBehaviour : MonoBehaviour
             case 3:
                 firstThemeToLockNumber = 3;
                 break;
+            case 4:
+                firstThemeToLockNumber = 3; // потом поменять на 4
+                break;
             default:
                 firstThemeToLockNumber = int.MaxValue;
                 break;
@@ -239,14 +242,12 @@ public class PadBehaviour : MonoBehaviour
     {
         if (!isPadCalled)
         {
-            robotBehaviour.currentMoveSpeed = robotBehaviour.freezeSpeed;
-            robotBehaviour.currentRotateSpeed = robotBehaviour.freezeSpeed;
+            robotBehaviour.FreezePlayer();
             UI.Pad.GetComponentInParent<Animator>().Play("MoveLeft_Pad");
         }
         else
         {
-            robotBehaviour.currentMoveSpeed = robotBehaviour.moveSpeed;
-            robotBehaviour.currentRotateSpeed = robotBehaviour.rotateSpeed;
+            robotBehaviour.UnfreezePlayer();
             UI.Pad.GetComponentInParent<Animator>().Play("MoveRight_Pad");
         }
         isPadCalled = !isPadCalled;
@@ -287,7 +288,7 @@ public class PadBehaviour : MonoBehaviour
             for (var i = 0; i < availableTipsCounts.Count; i++)
                 availableTipsCounts[i] = PlayerPrefs.GetInt("Available Tips Count (Task " + (i + 1) + ")");
         }
-        if (gameData.SceneIndex != 0)
+        if (gameData.SceneIndex != 0 && gameData.SceneIndex != 4)
             Canvas.GetComponent<SaveLoad>().Save();
     }
 }
