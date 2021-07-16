@@ -13,19 +13,7 @@ public class RobotBehaviour : MonoBehaviour
     [Header("Значения скорости движения и поворота при заморозке")]
     public float freezeSpeed = 0f;
 
-    public void FreezePlayer()
-    {
-        currentMoveSpeed = freezeSpeed;
-        currentRotateSpeed = freezeSpeed;
-    }
-
-    public void UnfreezePlayer()
-    {
-        currentMoveSpeed = moveSpeed;
-        currentRotateSpeed = rotateSpeed;
-    }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         var deltaX = Input.GetAxis("Horizontal");
         var deltaZ = Input.GetAxis("Vertical");

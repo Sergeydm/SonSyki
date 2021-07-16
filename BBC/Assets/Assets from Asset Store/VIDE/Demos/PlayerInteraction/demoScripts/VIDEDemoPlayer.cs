@@ -35,8 +35,8 @@ public class VIDEDemoPlayer : MonoBehaviour
 
     void Start()
     {
-        /*Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;*/
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -45,7 +45,7 @@ public class VIDEDemoPlayer : MonoBehaviour
         //Only allow player to move and turn if there are no dialogs loaded
         if (!VD.isActive)
         {
-            /*transform.Rotate(0, Input.GetAxis("Mouse X") * 5, 0);
+           /* transform.Rotate(0, Input.GetAxis("Mouse X") * 5, 0);
             float move = Input.GetAxisRaw("Vertical");
             transform.position += transform.forward * 7 * move * Time.deltaTime;
             blue.SetFloat("speed", move);*/
@@ -54,18 +54,18 @@ public class VIDEDemoPlayer : MonoBehaviour
         //Interact with NPCs when pressing E
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //TryInteract();
+            TryInteract();
         }
 
         //Hide/Show cursor
-        /*if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Cursor.visible = !Cursor.visible;
             if (Cursor.visible)
                 Cursor.lockState = CursorLockMode.None;
             else
                 Cursor.lockState = CursorLockMode.Locked;
-        }*/
+        }
     }
 
     //Casts a ray to see if we hit an NPC and, if so, we interact
